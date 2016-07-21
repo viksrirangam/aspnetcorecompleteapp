@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <title>@ViewBag.Title</title>
+
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/app.css">
+    <script>
+        function myFunction() {
+            document.getElementsByClassName("topnav")[0].classList.toggle("responsive");
+        }
+    </script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.3.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.6/jquery.validate.unobtrusive.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <ul class="topnav">
+              <li><a asp-controller="Home" asp-action="Index">Blipkart</a></li>
+              <li><a asp-controller="Cart" asp-action="Orders">Orders</a></li>
+              <li><a asp-controller="Cart" asp-action="Cart" data-icon="&#xe04d;">Cart</a></li>
+              <li class="icon">
+                <a href="javascript:void(0);" style="font-size:15px;" onclick="myFunction()">☰</a>
+              </li>
+            </ul>
+        </div>
+        <div class="row">
+            @RenderBody()
+        </div>
+    </div>
+</body>
+</html>

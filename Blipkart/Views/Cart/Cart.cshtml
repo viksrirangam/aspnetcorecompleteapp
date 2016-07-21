@@ -1,0 +1,38 @@
+@model Blipkart.ViewModel.Cart
+
+@{
+    ViewBag.Title = Model.CustomerName;
+}
+
+<h4>@Model.CustomerName</h4>
+
+<table class="u-full-width">
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.LineItems[0].ProductName)</span></th>
+        <th>@Html.DisplayNameFor(model => model.LineItems[0].Price)</th>
+        <th>@Html.DisplayNameFor(model => model.LineItems[0].Quantity)</th>
+        <th>@Html.DisplayNameFor(model => model.LineItems[0].Total)</th>
+    </tr>
+
+    @foreach (var item in Model.LineItems)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductName)
+            </td>
+            <td currency>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td currency>
+                @Html.DisplayFor(modelItem => item.Total)
+            </td>
+        </tr>
+    }
+</table>
+
+<h3 currency>@Model.GrandTotal</h3>
+
+<a asp-controller="Cart" asp-action="Buy" class="button button-primary">Check Out</a>

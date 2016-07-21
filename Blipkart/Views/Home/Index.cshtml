@@ -1,0 +1,19 @@
+@model IEnumerable<Blipkart.ViewModel.Item>
+
+@{
+    ViewBag.Title = "Products";
+}
+
+<div class="row">
+@foreach (var item in Model)
+{
+    <div class="one-third column">
+        <a class="product" asp-controller="Home" asp-action="Show" asp-route-id="@item.ProductId">
+            <figure>
+              <img src="@string.Format("/images/{0}.jpg", item.ProductName)" />
+              <figcaption>@item.ProductName</figcaption>
+            </figure>
+        </a>
+     </div>
+}
+</div>

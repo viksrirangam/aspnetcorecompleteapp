@@ -1,0 +1,59 @@
+@model IEnumerable<Blipkart.ViewModel.OrderInfo>
+
+@{
+    ViewBag.Title = "Orders";
+}
+
+<h2>Your orders:</h2>
+
+<table class="u-full-width">
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.Id)</th>
+        <th>@Html.DisplayNameFor(model => model.OrderDate)</th>
+        <th>@Html.DisplayNameFor(model => model.TotalAmount)</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(model => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.OrderDate)
+            </td>
+            <td currency>
+                @Html.DisplayFor(model => item.TotalAmount)
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <table>
+                    <tr>
+                        <th>@Html.DisplayNameFor(model => model.LineItems[0].ProductName)</th>
+                        <th>@Html.DisplayNameFor(model => model.LineItems[0].Price)</th>
+                        <th>@Html.DisplayNameFor(model => model.LineItems[0].Quantity)</th>
+                        <th>@Html.DisplayNameFor(model => model.LineItems[0].Total)</th>
+                    </tr>
+                    @foreach (var litem in item.LineItems)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => litem.ProductName)
+                            </td>
+                            <td currency>
+                                @Html.DisplayFor(modelItem => litem.Price)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => litem.Quantity)
+                            </td>
+                            <td currency>
+                                @Html.DisplayFor(modelItem => litem.Total)
+                            </td>
+                        </tr>
+                    }
+                </table>
+            </td>
+        </tr>
+    }
+</table>

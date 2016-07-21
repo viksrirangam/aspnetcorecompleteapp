@@ -1,0 +1,41 @@
+@model Blipkart.ViewModel.LineItem
+
+@{
+    ViewBag.Title = Model.ProductName;
+    var imgPath = "/images/" + Model.ProductName + ".jpg";
+}
+
+<div class="one-half column">
+    <figure>
+      <img src="@imgPath" />
+      <figcaption>@Model.ProductName</figcaption>
+    </figure>
+</div>
+
+<div class="one-half column">
+    Price: <h3 currency>@Html.DisplayFor(item => item.Price)</h3>
+    <form asp-controller="Cart" asp-action="Add" method="post" role="form">
+        <div>
+            <div asp-validation-summary="All"></div>
+            <div>
+                <label asp-for="Quantity"></label>
+                <div>
+                    <input asp-for="Quantity" value="" />
+                    <span asp-validation-for="Quantity"></span>
+                </div>
+            </div>
+            <input type="hidden" asp-for="ProductId" />
+            <input type="hidden" asp-for="ProductName" />
+            <input type="hidden" asp-for="Price" />
+            <div>
+                <div>
+                    <input type="submit" value="Add Cart" class="button button-primary" />
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="col-md-3">
+    @await Component.InvokeAsync("Cart", new { numberOfItems = 3})
+</div>
