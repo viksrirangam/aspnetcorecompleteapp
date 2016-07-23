@@ -16,7 +16,27 @@
     </script>
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.3.min.js"></script>
     <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
-<script src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.6/jquery.validate.unobtrusive.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.6/jquery.validate.unobtrusive.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            console.log( "ready!" );
+            $("#cartmenu").hover(showTooltip, hideTooltip);
+
+            function showTooltip()
+            {
+                var offset = $("#cartmenu").position();
+                $('.popup').css('left', offset.left);
+                $('.popup').css('top', offset.top + 50);
+
+                $(".popup").fadeIn();
+            }
+
+            function hideTooltip()
+            {
+                $(".popup").fadeOut();
+            }
+        });
+    </script>
 </head>
 <body>
     <div class="container">
@@ -24,7 +44,7 @@
             <ul class="topnav">
               <li><a asp-controller="Home" asp-action="Index">Blipkart</a></li>
               <li><a asp-controller="Cart" asp-action="Orders">Orders</a></li>
-              <li><a asp-controller="Cart" asp-action="Cart" data-icon="&#xe04d;">Cart</a></li>
+              <li id="cartmenu"><a asp-controller="Cart" asp-action="Cart" data-icon="&#xe04d;">Cart</a></li>
               <li class="icon">
                 <a href="javascript:void(0);" style="font-size:15px;" onclick="myFunction()">☰</a>
               </li>
@@ -32,6 +52,9 @@
         </div>
         <div class="row">
             @RenderBody()
+        </div>
+        <div class="popup">
+            @await Component.InvokeAsync("Cart", new { numberOfItems = 3})
         </div>
     </div>
 </body>

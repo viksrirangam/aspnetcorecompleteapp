@@ -1,9 +1,4 @@
 @model Blipkart.ViewModel.Cart
 
 <h4>Cart</h4>
-<ul>
-@foreach (var item in Model.LineItems)
-{
-    <li>@item.Quantity</li>
-}
-</ul>
+<div>Total @Model.LineItems.Count items in cart worth Rs. @Model.GrandTotal</div>
