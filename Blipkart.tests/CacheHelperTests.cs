@@ -40,9 +40,9 @@ namespace BlipkartTest
             Assert.IsNull(_p);
 
             cache.Set("key1", product);
-            cache.Remove("key1");
-
             stubMemoryCache.Verify(s => s.CreateEntry(It.IsAny<string>()));
+
+            cache.Remove("key1");
             stubMemoryCache.Verify(s => s.Remove(It.IsAny<string>()));
         }
     }

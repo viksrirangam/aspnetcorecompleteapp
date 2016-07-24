@@ -47,9 +47,6 @@ namespace BlipkartTest
             //Assert.AreEqual("Index", view.ViewName);
 
             //stubService.Verify(x => x.GetItems());
-            //not working extention methods cannot be veified.
-            //mockLogger.Verify(x => x.LogInformation(new EventId(LoggingEvents.LIST_ITEMS, null), "Listing all items"));
-            //mockLogger.Verify(x => x.LogInformation(LoggingEvents.LIST_ITEMS, "Listing all items"));
         }
 
         private List<Item> GetSampleItems()
