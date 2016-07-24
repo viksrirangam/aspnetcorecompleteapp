@@ -26,7 +26,10 @@ namespace Blipkart.Service
             if(!_memoryCache.TryGetValue(sessionId, out _cart))
             {
                 _cart = new Cart(){CartId = sessionId, CustomerName = "Guest"};
-                _memoryCache.Set(sessionId, _cart);
+                //_memoryCache.Set(sessionId, _cart);
+                //try use CreateEntry and set value.
+                ICacheEntry entry = _memoryCache.CreateEntry(sessionId);
+                entry.Value = _cart;
             }
 
             return _cart;

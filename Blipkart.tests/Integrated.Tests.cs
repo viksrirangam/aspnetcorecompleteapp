@@ -10,6 +10,7 @@ using Blipkart;
 namespace BlipkartTest
 {
     [TestClass]
+    [Ignore]
     public class IntegratedTests
     {
         private readonly TestServer _server;
