@@ -11,7 +11,6 @@ using Blipkart.Model;
 namespace BlipkartTest
 {
     [TestClass]
-    [Ignore]
     public class DbContextTests
     {
         private DbContextOptions<ShoppingContext> _contextOptions;

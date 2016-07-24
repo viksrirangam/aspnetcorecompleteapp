@@ -19,7 +19,6 @@ using Blipkart.Controllers;
 namespace BlipkartTest
 {
     [TestClass]
-    [Ignore]
     public class ControllerTests
     {
         [TestMethod]

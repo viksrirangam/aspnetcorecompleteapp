@@ -12,7 +12,6 @@ using Blipkart.Core.Infra;
 namespace BlipkartTest
 {
     [TestClass]
-    [Ignore]
     public class CacheHelperTests
     {
         [TestMethod]

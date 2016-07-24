@@ -131,5 +131,4 @@ namespace Blipkart
 /*
 expire cached cart when session id changes.
 ef logging, model logging(via action filter)
-tests for repository, views
 */

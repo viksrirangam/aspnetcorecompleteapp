@@ -17,7 +17,6 @@ using Blipkart.Repository;
 namespace BlipkartTest
 {
     [TestClass]
-    [Ignore]
     public class ServiceTests
     {
         [TestMethod]

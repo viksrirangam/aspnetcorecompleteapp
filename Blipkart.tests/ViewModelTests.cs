@@ -11,7 +11,6 @@ using Blipkart.ViewModel;
 namespace BlipkartTest
 {
     [TestClass]
-    [Ignore]
     public class ViewModelTests
     {
         //async test methods are not supported.
