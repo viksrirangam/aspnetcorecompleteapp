@@ -131,4 +131,5 @@ namespace Blipkart
 /*
 expire cached cart when session id changes.
 ef logging, model logging(via action filter)
+UpdateCartCustomerInfo can be moved to CartController to AccountController
 */
